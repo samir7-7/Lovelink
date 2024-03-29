@@ -1,0 +1,14 @@
+.header-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_image{
+    height: 45px;
+    
+}
+
+.header_icon{
+    padding: 40px;
+}

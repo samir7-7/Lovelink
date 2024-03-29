@@ -1,0 +1,72 @@
+.gender-selection {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  width: 100%; */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  margin-top: 100px;
+  background: #fff;
+  padding: 30px 50px ;
+  border-radius: 9px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.gender-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.selectgender_Title{
+  color: orangered;
+  padding-bottom: 5px;
+  border-bottom: 1px solid orangered;
+}
+
+.gender-button.selected {
+  background-color: lightgrey;
+  border: 1px solid orangered;
+  color: rgb(29, 29, 29)
+
+}
+
+.show-gender-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.next-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: orangered;
+  color: #ffffff;
+  cursor: pointer;
+  width: 40vw;
+  margin-top: 30px;
+  transition: .3s;
+  font-weight: bolder;
+}
+
+.next-button:hover{
+  background-color: rgb(248, 105, 54);
+}
+
+
