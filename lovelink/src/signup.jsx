@@ -10,16 +10,17 @@ import { createUserWithEmailAndPassword,
     } from "firebase/auth";
 
 import { Link, useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux'; 
+import { setUser } from './usersSlice.js';
+import { Provider } from 'react-redux'; // Import the Redux Provider
 
- 
-// import {useDispatch} from 'react-redux'; 
 // import {setUser} from './usersSlice.js';
 
 
  
 
 const Signup = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate= useNavigate();
     const [action, setAction] = useState("Sign Up");
     console.log(auth);
@@ -37,10 +38,8 @@ const Signup = () => {
         .then((userCredential) => {
                 // Signed up 
                 console.log(userCredential.user);
+                dispatch(setUser({id: userCredential.user.uid, email: userCredential.user.email}));
                 navigate("/fullname")
-    
-                // dispatch(setUser({id: userCredential.user.uid, email: userCredential.user.email}));
-                
             })
         .catch((error) => {
                 const errorCode = error.code;
@@ -51,18 +50,16 @@ const Signup = () => {
             });
     }
 
-    function handleLogin(e){
+    function handleLogin(e,userCredential){
         e.preventDefault();
         signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
         .then((userCredentials) => {
             // Signed in 
+            dispatch(setUser({id: userCredential.user.uid, email: userCredential.user.email}));
             const user = userCredentials.user;
             console.log(user)
             navigate("/mainpage")
-           
 
-            // dispatch(setUser({id: userCredentials.user.uid,email:userCredentials.user.email}));
-            // ...
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -79,7 +76,8 @@ const Signup = () => {
 
 
     return (
-        <div className="whole">
+     
+      <div className="whole">
             <div className='signup-container'>
                 <img src={require('./Images/lovelink.png')} alt="logo" className='lovelinkfull-logo' />
                 <div className="header">
@@ -125,6 +123,8 @@ const Signup = () => {
                 </div>
             </div>
         </div>
+
+        
 
     )
 }
